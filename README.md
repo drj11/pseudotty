@@ -11,7 +11,8 @@ the master terminal on its stdout.
 
 # Installation
 
-no idea, but you can compile it with:
+No idea, but you can compile it with:
 
     make
 
+It creates an executable binary `pseudotty`.
