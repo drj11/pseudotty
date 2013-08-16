@@ -4,7 +4,7 @@ Use it like this:
 
     (slave=$(pseudotty)
      ...
-    ) < /dev/ptmx
+    ) <> /dev/ptmx
 
 it outputs the name of the slave terminal that corresponds to
 the master terminal on its stdout.
