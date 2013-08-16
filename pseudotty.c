@@ -16,9 +16,14 @@ main(void)
     if(e) {
         goto grantptError;
     }
+    e = unlockpt(fd);
+    if(e) {
+        goto unlockptError;
+    }
     printf("%s\n", s);
     return 0;
 
+unlockptError:
 grantptError:
 ptsnameError:
     perror("pseudotty");
