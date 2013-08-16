@@ -6,11 +6,21 @@ int
 main(void)
 {
     const char *s;
-    s = ptsname(0);
-    if(s) {
-        printf("%s\n", s);
-        return 0;
+    int fd = 0;
+    s = ptsname(fd);
+    if(!s) {
+        goto ptsnameError;
     }
+    int e;
+    e = grantpt(fd);
+    if(e) {
+        goto grantptError;
+    }
+    printf("%s\n", s);
+    return 0;
+
+grantptError:
+ptsnameError:
     perror("pseudotty");
     return 2;
 }
